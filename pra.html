@@ -1,0 +1,49 @@
+<head>
+     <script src="node_modules/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            var data = [
+                {Name : 'mobil', price : 4000},
+                {Name : 'phone', price : 2000},
+            ]
+            $.each(data,function(key,value){
+                $(`<tr><td>${data.value}</td><td>${data.value}</td></tr>`).appendTo('#proDetail');
+            });
+        })
+    </script>
+</head>
+<body class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+        <h2>product name </h2>
+        <div class='from-control'>
+            <label>product name </label>
+            <div>
+                <input type="text" class="form-control" id='proName'>
+            </div>
+        </div>
+        <div class="from-control">
+            <label> Price </label>
+            <div>
+                <input type="number" class="form-control" id="proPrice">
+            </div>
+        </div>
+        <button class="btn btn-success">Add Product</button>
+    </div>
+    <div class="col-7">
+        <table class='table'>
+        <thead class ='table-dark'>
+            <td>product</td>
+            <td>price</td>
+        </thead>
+        <tbody id="proDetail" class="dark-light">
+
+        </tbody>
+        </table>
+    </div>
+  </div>
+    
+</body>

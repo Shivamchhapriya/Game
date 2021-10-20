@@ -1,0 +1,108 @@
+.backgroundcolor{
+    height: 700px;
+    width: 100%;
+    background-color: aqua;
+    display: flex;
+}
+.box1{
+    width: 420px;
+    height: 550px;
+    background-color: blueviolet;
+    margin-top: 130px;
+    margin-left: 300px;
+    font-weight: bolder;
+    border: 1px solid black;
+}
+.player1 {
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    margin-top: 70px;
+}
+.btn1{
+    margin-left: 345px;
+    position: absolute;
+    border-radius: 20px;
+    font-size: 23px;
+    background-color: transparent;
+    width: 150px;
+    margin-top: -230px;
+}
+.Btn2{
+    margin-left: 340px;
+    position: absolute;
+    border-radius: 20px;
+    font-size: 23px;
+    background-color: transparent;
+    width: 160px;
+    margin-top: 110px;
+}
+.Btn3{
+    margin-left: 370px;
+    position: absolute;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: transparent;
+    width: 100px;
+    margin-top: 180px;
+}
+.box2{
+    width: 420px;
+    height: 550px;
+    background-color:blueviolet;
+    margin-top: 130px;
+    border: 1px solid black;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+} 
+.active{
+    background-color: yellow;
+}
+.player2 {
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    margin-top: 70px;
+}
+.minbox1{
+    width: 200px;
+    height: 150px;
+    background-color: red;
+    margin-top: 80px;
+    margin-left: 90px;
+    border-radius: 10px;
+    text-align: center;
+}
+.minbox2{
+    width: 200px;
+    height: 150px;
+    background-color: red;
+    margin-top: 70px;
+    margin-left: 130px;
+    border-radius: 10px;
+    text-align: center;
+}
+.current1{
+    padding-top:30px
+}
+.current2{
+    padding-top: 30px;
+}
+.zero1{
+    font-size: 70px;
+    margin-left: 170px;
+    margin-top: 30px;
+}
+.zero2{
+    font-size: 80px;
+    margin-left: 170px;
+    margin-top: 30px;
+}
+.change1{
+    background-color: yellow;
+}
+.change2{
+    background-color: green;
+}

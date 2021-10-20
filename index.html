@@ -1,0 +1,234 @@
+
+<html>
+<head>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+   <script>
+        
+    function editProduct(productName){ debugger;
+       
+    let findproduct = data.filter(function (item){
+        return item.Name == productName;
+    })
+       $('#proName').val(findproduct[0].Name)
+       $('#proPrice').val(findproduct[0].price)
+       $('#addButton').html('update product');
+      
+    }
+    function deletclick(productName){debugger;
+        for (let i = 0; i<data.length; i++){
+            if(data[i].Name===productName)
+            data.splice(i,1);
+            bodyload();
+        }
+    }
+     
+  
+    
+    
+    
+    
+    $(function(){
+            var data = [
+                {Name : 'vivo', price : 10000},
+                {Name : 'oppo', price : 20000},
+            ]
+            function bodyload(){
+            $.each(data,function(key,value){
+                $(`<tr><td>${value.Name}</td><td>${value.price}</td><td><button class="text-danger" onclick = editProduct('${value.Name}')>edit</button></td><td><button class="text-primary" onclick = deletclick('${value.Name}')>Update</button></td></tr>`).appendTo('#proDetail');
+            });
+            }    
+
+
+
+        bodyload();
+            var result = {};
+            var findName = [];
+            $('#addButton').click(()=>{
+                var dataname  = $('#proName').val();
+                var dataprice = $('#proPrice').val();
+
+                // findName = data.filter(function(item){return item.Name == dataname})
+                // if(findName.length > 0 || dataname == ""){
+                //     alert('wrong')
+                //     $('#proName').val("");
+                //     $('#proPrice').val("");
+                //     return;
+                // }
+               
+
+                
+                result.Name = dataname;
+                result.price = dataprice;
+
+                findName = data.filter(function(too){return too.Name==dataname})
+                if(findName.length > 0 || dataname == ""){
+                    alert('Already product are match')
+                    $('#proName').val('');
+                    $('#proPrice').val('');
+                    return;
+                }
+                else{
+
+
+                data.push(result); 
+                $('#proDetail').html("");
+                // document.getElementById('proDetail').innerHTML= "";
+                $('#proName').val("");
+                $('#proPrice').val("");
+                bodyload(); 
+                }
+
+            })
+
+
+        })
+
+
+    
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <h2>Flickcart</h2>
+            <div class="form-group">
+                <label>Product Name</label>
+            </div>
+            <div>
+                <input type="text" id="proName" class="form-control">
+            </div>
+            <di v class="from-group">
+                <label>Price</label>
+                <div>
+                    <input type="number" id="proPrice" class="form-control" >
+                </div>
+           <br>
+            <button class="btn btn-primary" id="addButton">Add Product</button>
+        </div>
+        
+        
+        <div class="col-7">
+            <h2>Detail</h2>
+            <!-- <table class="table">
+                <thead class="table-info">
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Edit</td>
+                    <td>Update</td>
+                </thead>
+                <tbody id="proDetail" class="table-light">
+
+                </tbody>
+            </table> -->
+            <table class="table table-striped table-dark">
+                <thead>
+                 
+                    <td scope="col">product Name</td>
+                    <td scope="col">Price</td>
+                    <td scope="col">Edit</td>
+                    <td scope="col">Update</td>
+                
+                </thead>
+                <tbody id="proDetail" class="table-info">
+
+                </tbody>
+              </table>
+              
+
+        </div>
+    </div>
+</div>    
+</body>
+</html>  
+
+ <!-- <html>
+<head>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            var data = [
+                {Name : 'badud' , Price : 10000},
+                {Name : 'Gaval' , Price : 20000},
+            ]
+            // $.each(data,function(key,value){
+            //     $(`<tr><td>${value.Name}</td><td>${value.price}</td><td><button class="text-danger">edit</button></td><td><button class="text-primary">Update</button></td></tr>`).appendTo('#proDetail');
+            // });
+            function bodyload(){
+            $.each(data,function(key,value){
+                $(`<tr><td>${value.Name}</td><td>${value.Price}</td></tr>`).appendTo('#productn');
+            })
+        }
+            bodyload();
+            // var result = {};
+           
+           $('#btnproduct').click(()=>{
+            var result = {};
+            findData = [];
+               var dataname = $('#proName').val();
+               var dataprice = $('#proPrice').val();
+
+            findData = data.filter(function(item){ return item.Name == dataname});
+            if(findData.length>0 || dataname== ""){
+                alert ('shibam');
+            }
+            
+
+           result.Name = dataname,
+           result.Price = dataprice,
+
+           data.push(result);
+           $('#productn').html ("")
+           $('#proName').val("");
+           $('#proPrice').val("");
+           
+
+           bodyload();
+        });
+
+        });
+    </script>
+</head>
+<body class="container-fluid">
+   <div class="row">
+    <div class="col-4">
+        <h2>Flickcart</h2>
+        <div class="form-control">
+            <label>product Name</label>
+        </div>
+        <div><br>
+            <input type="text" id="proName" class="form-control">
+        </div><br>
+        <div class="form-control">
+            <label>Price</label>
+        </div>
+        <div><br>
+            <input type="text" id="proPrice" class="form-control">
+        </div><br>
+        <div>
+            <button id="btnproduct" class="btn btn-success">Add Product</button>
+        </div>
+    </div>
+    <div class="col-7">
+        <table class="table">
+            <thead class="table-primary">
+                <td>Product</td>
+                <td>price</td>
+            </thead>
+            <tbody id="productn">
+
+            </tbody>
+        </table>
+       
+    </div>
+   </div> 
+
+</body>
+</html>  -->
